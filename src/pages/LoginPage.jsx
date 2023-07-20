@@ -1,11 +1,9 @@
+import { LoginForm } from 'components/LoginForm/LoginForm';
+
 const LoginPage = () => {
   return (
     <div>
-      <form>
-        <input type="text" />
-        <input type="text" />
-        <button type="submit">Log in</button>
-      </form>
+      <LoginForm />
     </div>
   );
 };

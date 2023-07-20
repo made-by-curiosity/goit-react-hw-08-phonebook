@@ -15,7 +15,7 @@ export const Form = () => {
   } = useForm({
     defaultValues: {
       name: '',
-      phone: '',
+      number: '',
     },
     mode: 'onChange',
   });
@@ -58,10 +58,10 @@ export const Form = () => {
       </label>
       <ErrorText>{errors?.name?.message}</ErrorText>
 
-      <label htmlFor="phone">
+      <label htmlFor="number">
         <p>Number</p>
         <input
-          {...register('phone', {
+          {...register('number', {
             required: 'Number is required',
             pattern: {
               value:
@@ -73,7 +73,7 @@ export const Form = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         />
       </label>
-      <ErrorText>{errors?.phone?.message}</ErrorText>
+      <ErrorText>{errors?.number?.message}</ErrorText>
       <AddButton type="submit" disabled={!isValid}>
         Add Contact
       </AddButton>
