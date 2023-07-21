@@ -22,9 +22,6 @@ export const SignUpForm = () => {
     mode: 'onChange',
   });
 
-  console.log(errors);
-  console.log(isValid);
-
   const dispatch = useDispatch();
 
   const onSubmit = ({ name, email, password }) => {

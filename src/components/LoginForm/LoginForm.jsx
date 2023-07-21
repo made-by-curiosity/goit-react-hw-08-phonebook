@@ -21,9 +21,6 @@ export const LoginForm = () => {
     mode: 'onChange',
   });
 
-  console.log(errors);
-  console.log(isValid);
-
   const dispatch = useDispatch();
 
   const onSubmit = ({ email, password }) => {
