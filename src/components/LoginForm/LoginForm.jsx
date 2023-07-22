@@ -1,17 +1,18 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import {
+  FromTitle,
   MainButton,
   MainForm,
   MainInput,
 } from 'components/MainForm/MainForm.styled';
 import { logIn } from 'redux/auth/operations';
 
-export const LoginForm = () => {
+export const LoginForm = ({ formTitle }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    // formState: { errors, isValid },
     reset,
   } = useForm({
     defaultValues: {
@@ -35,13 +36,18 @@ export const LoginForm = () => {
 
   return (
     <MainForm onSubmit={handleSubmit(onSubmit)}>
+      {formTitle && <FromTitle>{formTitle}</FromTitle>}
       <label>
         <span>Email</span>
-        <MainInput {...register('email')} autoComplete="off" />
+        <MainInput {...register('email')} autoFocus />
       </label>
       <label>
         <span>Password</span>
-        <MainInput {...register('password')} />
+        <MainInput
+          {...register('password')}
+          type="password"
+          autoComplete="off"
+        />
       </label>
       <MainButton type="submit">Log in</MainButton>
     </MainForm>

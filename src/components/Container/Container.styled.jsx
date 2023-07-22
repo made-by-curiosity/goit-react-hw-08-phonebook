@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const PhonebookWrap = styled.div`
-  padding: 30px;
+  padding: 0 30px;
 
   display: flex;
   flex-direction: column;

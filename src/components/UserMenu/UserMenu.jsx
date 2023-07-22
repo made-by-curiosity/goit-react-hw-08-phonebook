@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectors';
+import { LogOutBtn, UserName, UserWrapper } from './UserMenu.styled';
+import { ImExit } from 'react-icons/im';
 
 export const UserMenu = () => {
-  const { name, email } = useSelector(selectUser);
+  const { name } = useSelector(selectUser);
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -11,11 +13,13 @@ export const UserMenu = () => {
   };
 
   return (
-    <div>
-      <p>Hello {name}</p>
-      <button type="button" onClick={handleClick}>
-        Logout {email}
-      </button>
-    </div>
+    <UserWrapper>
+      <p>
+        Welcome, <UserName>{name}</UserName>
+      </p>
+      <LogOutBtn type="button" onClick={handleClick}>
+        Logout <ImExit />
+      </LogOutBtn>
+    </UserWrapper>
   );
 };

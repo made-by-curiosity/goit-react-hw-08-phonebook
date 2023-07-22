@@ -1,10 +1,11 @@
 import { LoginForm } from 'components/LoginForm/LoginForm';
+import { FormWrapper } from 'components/MainForm/MainForm.styled';
 
 const LoginPage = () => {
   return (
-    <div>
-      <LoginForm />
-    </div>
+    <FormWrapper>
+      <LoginForm formTitle="Log In" />
+    </FormWrapper>
   );
 };
 

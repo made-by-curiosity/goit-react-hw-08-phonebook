@@ -1,10 +1,11 @@
+import { FormWrapper } from 'components/MainForm/MainForm.styled';
 import { SignUpForm } from 'components/SignUpForm/SignUpForm';
 
 const SignUpPage = () => {
   return (
-    <div>
-      <SignUpForm />
-    </div>
+    <FormWrapper>
+      <SignUpForm formTitle="Sign Up" />
+    </FormWrapper>
   );
 };
 
