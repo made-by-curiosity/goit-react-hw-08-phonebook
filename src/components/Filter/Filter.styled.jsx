@@ -8,5 +8,6 @@ export const ContactsFilter = styled.div`
 `;
 
 export const FilterInput = styled(MainInput)`
+  min-width: 250px;
   margin-bottom: 15px;
 `;

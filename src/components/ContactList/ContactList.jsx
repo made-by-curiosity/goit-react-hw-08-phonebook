@@ -9,6 +9,7 @@ import {
 } from 'redux/contacts/selectors';
 import { selectFilter } from 'redux/filter/selectors';
 import { MdDelete } from 'react-icons/md';
+import { Loading } from 'components/Loading/Loading';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ export const ContactList = () => {
 
   return (
     <>
-      {isLoading && !error && <div>Loading...</div>}
+      {isLoading && !error && <Loading text="Loading..." />}
       {error && !isLoading && (
         <div>Sorry, something went wrong. Try again later</div>
       )}

@@ -2,10 +2,11 @@ import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import { refreshUser } from 'redux/auth/operations';
-import { selectIsRefreshing } from 'redux/auth/selectors';
 import { RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
+import { refreshUser } from 'redux/auth/operations';
+import { selectIsRefreshing } from 'redux/auth/selectors';
+import { Loading } from './Loading/Loading';
 
 const Home = lazy(() => import('../pages/Home'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
@@ -21,7 +22,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <p>refreshing user...</p>
+    <Loading text="Refreshing user..." />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
