@@ -52,6 +52,10 @@ export const Form = () => {
                 /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
               message: 'Name must contain only letters',
             },
+            maxLength: {
+              value: 20,
+              message: "Name shouldn't be longer than 20 characters",
+            },
           })}
           type="text"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -70,6 +74,10 @@ export const Form = () => {
               value:
                 /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}?$/,
               message: 'Invalid phone number',
+            },
+            maxLength: {
+              value: 20,
+              message: "Phone shouldn't be longer than 20 characters",
             },
           })}
           type="tel"
