@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import {
   ErrorMessage,
@@ -10,6 +10,9 @@ import {
 import { logIn } from 'redux/auth/operations';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { selectAuthError } from 'redux/auth/selectors';
+import { LinkItem } from 'components/Hero/Hero.styled';
+import { AuthErrorMsg } from './LoginFrom.styled';
 
 const schema = yup
   .object({
@@ -37,6 +40,7 @@ export const LoginForm = ({ formTitle }) => {
   });
 
   const dispatch = useDispatch();
+  const AuthError = useSelector(selectAuthError);
 
   const onSubmit = ({ email, password }) => {
     dispatch(
@@ -51,6 +55,7 @@ export const LoginForm = ({ formTitle }) => {
   return (
     <MainForm onSubmit={handleSubmit(onSubmit)}>
       {formTitle && <FromTitle>{formTitle}</FromTitle>}
+
       <label>
         <span>Email</span>
         <MainInput
@@ -75,7 +80,14 @@ export const LoginForm = ({ formTitle }) => {
       {errors.password?.message && (
         <ErrorMessage>{errors.password?.message}</ErrorMessage>
       )}
+
       <MainButton type="submit">Log in</MainButton>
+      {AuthError && (
+        <AuthErrorMsg>
+          User doesn't exist, <LinkItem to="/register">Sign Up</LinkItem> if
+          you're new here.
+        </AuthErrorMsg>
+      )}
     </MainForm>
   );
 };
