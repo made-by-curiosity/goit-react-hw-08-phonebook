@@ -8,6 +8,7 @@ import {
   selectIsLoading,
 } from 'redux/contacts/selectors';
 import { selectFilter } from 'redux/filter/selectors';
+import { MdDelete } from 'react-icons/md';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
@@ -44,13 +45,15 @@ export const ContactList = () => {
         {filteredContacts.map(({ id, name, number }) => {
           return (
             <ContactItem key={id}>
-              <span>{name}: </span> <span>{number}</span>{' '}
+              <div>
+                <p>{name}: </p> <p>{number}</p>
+              </div>
               <DeleteBtn
                 onClick={() => {
                   handleDelete(id);
                 }}
               >
-                Delete
+                <MdDelete />
               </DeleteBtn>
             </ContactItem>
           );

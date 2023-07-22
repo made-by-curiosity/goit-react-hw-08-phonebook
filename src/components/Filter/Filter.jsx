@@ -16,7 +16,12 @@ export const Filter = ({ filterTitle }) => {
   return (
     <ContactsFilter>
       {filterTitle && <p>{filterTitle}</p>}
-      <FilterInput type="text" value={filter} onInput={handleFilter} />
+      <FilterInput
+        type="text"
+        value={filter}
+        onInput={handleFilter}
+        autoFocus
+      />
     </ContactsFilter>
   );
 };

@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { AddButton, PhonebookForm, ErrorText } from './Form.styled';
+import { AddButton, PhonebookForm } from './Form.styled';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
+import { ErrorMessage, MainInput } from 'components/MainForm/MainForm.styled';
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ export const Form = () => {
     >
       <label htmlFor="name">
         <p>Name</p>
-        <input
+        <MainInput
           {...register('name', {
             required: 'Name is required',
             pattern: {
@@ -54,13 +55,15 @@ export const Form = () => {
           })}
           type="text"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          errors={errors.name}
+          autoComplete="off"
         />
       </label>
-      <ErrorText>{errors?.name?.message}</ErrorText>
+      <ErrorMessage>{errors?.name?.message}</ErrorMessage>
 
       <label htmlFor="number">
         <p>Number</p>
-        <input
+        <MainInput
           {...register('number', {
             required: 'Number is required',
             pattern: {
@@ -71,9 +74,11 @@ export const Form = () => {
           })}
           type="tel"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          errors={errors.number}
+          autoComplete="off"
         />
       </label>
-      <ErrorText>{errors?.number?.message}</ErrorText>
+      <ErrorMessage>{errors?.number?.message}</ErrorMessage>
       <AddButton type="submit" disabled={!isValid}>
         Add Contact
       </AddButton>

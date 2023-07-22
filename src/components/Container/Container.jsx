@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PhonebookWrap } from './Container.styled';
+import { PageTitle, PhonebookWrap } from './Container.styled';
 
 export const Container = ({ titleText, children }) => {
   return (
     <PhonebookWrap>
-      {titleText && <h1>{titleText}</h1>}
+      {titleText && <PageTitle>{titleText}</PageTitle>}
       {children}
     </PhonebookWrap>
   );

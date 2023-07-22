@@ -26,48 +26,60 @@ export const MainForm = styled.form`
 
 export const MainInput = styled.input`
   width: 100%;
+  min-width: 0px;
+  margin: 0px;
   padding: 10px 13px;
+
+  display: block;
 
   font: inherit;
   letter-spacing: inherit;
   color: currentcolor;
-  border: 1px solid gray;
+  border: 1px solid;
   border-radius: 4px;
 
-  background: none;
+  border-color: ${({ errors }) => (errors ? 'red' : 'gray')};
 
-  margin: 0px;
-  display: block;
-  min-width: 0px;
+  background: none;
+  outline: none;
 `;
 
 export const MainButton = styled.button`
-  margin: 30px auto 0;
-  padding: 5px;
+  margin-top: 16px;
+  padding: 10px 20px;
 
   display: inline-block;
-  width: 150px;
+  min-width: 100px;
 
-  border: 1px solid gray;
-  border-radius: 5px;
+  color: currentColor;
+  border-radius: 4px;
   transition: background-color 300ms ease-out, color 100ms ease-out;
+
+  background-color: rgb(64, 122, 214);
+
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 
   &:hover,
   &:focus {
-    background-color: #aaa;
-    color: #fff;
+    background-color: rgb(44, 85, 149);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   }
 
   &:active {
-    background-color: gray;
+    background-color: rgba(44, 85, 149, 0.5);
   }
 
   &:disabled {
-    background-color: #fff;
+    background-color: rgba(44, 85, 149, 0.3);
+
     color: #d5d5d5;
 
     &:hover {
       cursor: not-allowed;
     }
   }
+`;
+
+export const ErrorMessage = styled.p`
+  color: rgba(255, 0, 0, 0.9);
 `;

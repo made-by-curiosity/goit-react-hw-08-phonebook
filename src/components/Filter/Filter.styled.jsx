@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { MainInput } from 'components/MainForm/MainForm.styled';
 
 export const ContactsFilter = styled.div`
   & > p {
@@ -6,6 +7,6 @@ export const ContactsFilter = styled.div`
   }
 `;
 
-export const FilterInput = styled.input`
+export const FilterInput = styled(MainInput)`
   margin-bottom: 15px;
 `;
