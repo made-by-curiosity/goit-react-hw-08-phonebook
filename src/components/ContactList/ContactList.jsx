@@ -7,9 +7,9 @@ import {
   selectError,
   selectIsLoading,
 } from 'redux/contacts/selectors';
+import { Loading } from 'components/Loading/Loading';
 import { selectFilter } from 'redux/filter/selectors';
 import { MdDelete } from 'react-icons/md';
-import { Loading } from 'components/Loading/Loading';
 
 export const ContactList = () => {
   const dispatch = useDispatch();

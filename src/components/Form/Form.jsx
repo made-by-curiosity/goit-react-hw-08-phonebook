@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { AddButton, PhonebookForm } from './Form.styled';
-import { selectContacts } from 'redux/contacts/selectors';
-import { addContact } from 'redux/contacts/operations';
 import { ErrorMessage, MainInput } from 'components/MainForm/MainForm.styled';
+import { addContact } from 'redux/contacts/operations';
+import { selectContacts } from 'redux/contacts/selectors';
 
 export const Form = () => {
   const dispatch = useDispatch();

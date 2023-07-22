@@ -1,5 +1,8 @@
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import {
   ErrorMessage,
   FromTitle,
@@ -8,8 +11,6 @@ import {
   MainInput,
 } from 'components/MainForm/MainForm.styled';
 import { signUp } from 'redux/auth/operations';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 
 const schema = yup
   .object({
@@ -95,3 +96,5 @@ export const SignUpForm = ({ formTitle }) => {
     </MainForm>
   );
 };
+
+SignUpForm.propTypes = { formTitle: PropTypes.string.isRequired };

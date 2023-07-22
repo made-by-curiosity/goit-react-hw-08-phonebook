@@ -25,10 +25,10 @@ export const Hero = () => {
           <>
             <p>
               <LinkItem to="/login">Login</LinkItem> to your account to get
-              access to all your contacts
+              access to all your contacts.
             </p>
             <p>
-              Isn't member yet? <LinkItem to="/register">Sign up</LinkItem>
+              Isn't a member yet? <LinkItem to="/register">Sign up</LinkItem>
             </p>
           </>
         )}
