@@ -1,15 +1,16 @@
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import Home from 'pages/Home';
-import Contacts from 'pages/Contacts';
-import LoginPage from 'pages/LoginPage';
-import SignUpPage from 'pages/SignUpPage';
 import { refreshUser } from 'redux/auth/operations';
 import { selectIsRefreshing } from 'redux/auth/selectors';
 import { RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
+
+const Home = lazy(() => import('../pages/Home'));
+const LoginPage = lazy(() => import('../pages/LoginPage'));
+const SignUpPage = lazy(() => import('../pages/SignUpPage'));
+const Contacts = lazy(() => import('../pages/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -49,6 +50,7 @@ export const App = () => {
             <PrivateRoute component={<Contacts />} restrictedTo="/login" />
           }
         />
+        <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
   );
