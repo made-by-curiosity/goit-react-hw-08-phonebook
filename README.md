@@ -1,5 +1,5 @@
 Phonebook [React, JS, CSS in JS(Emotion), Webpack, Redux Toolkit, Redux Thunk,
-JWT Auth, REST API, AJAX]
+Axios, JWT Auth, REST API, AJAX]
 
 Individual project
 
